@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-SmartLock Home Automation Services | Smart Security, Solar & Enterprise Wi-Fi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            950: '#060A13',
+                            900: '#0B1120',
+                            850: '#10182B',
+                            800: '#162038',
+                        },
+                        cyan: {
+                            400: '#22D3EE',
+                            500: '#06B6D4',
+                            600: '#0891B2',
+                        },
+                        amber: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+
+    <!-- Background Ambient Glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-amber-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- 1. STICKY MODERN NAVIGATION BAR -->
+    <header id="navbar" class="sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
+        <!-- Top Quick-Call Bar -->
+        <div class="bg-slate-900/95 border-b border-slate-800/80 text-xs">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+                <div class="hidden sm:flex items-center gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>Metro Manila (CAMANAVA) & Zamboanga City Dispatch</span>
+                </div>
+                <div class="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-4 sm:gap-5">
+                    <span class="text-slate-400 font-medium hidden md:inline">Call / Text / Viber:</span>
+                    <a href="tel:+639764827830" class="inline-flex items-center gap-1.5 font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                        <span>0976-482-7830</span>
+                    </a>
+                    <span class="text-slate-700">|</span>
+                    <a href="tel:+639566914918" class="inline-flex items-center gap-1.5 font-semibold text-amber-400 hover:text-amber-300 transition-colors">
+                        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                        <span>0956-691-4918</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-cyan-600 p-[1px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all">
+                        <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-cyan-400"></i>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white leading-none">
+                            V-SmartLock
+                        </span>
+                        <span class="text-[11px] sm:text-xs font-medium text-cyan-400 tracking-wider uppercase mt-1">
+                            Home Automation Services
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#services" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
+                    <a href="#estimator" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Solution Estimator</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#why-us" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Why Us</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Get a Quote</a>
+                </nav>
+
+                <!-- Desktop CTA + Mobile Menu Button -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openAssessmentModal()" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-semibold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40 transition-all active:scale-95">
+                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        <span>Book Site Assessment</span>
+                    </button>
+
+                    <!-- Mobile Drawer Trigger -->
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-colors">
+                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900/95 backdrop-blur-2xl border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/80 hover:text-cyan-400 transition-colors">Services & Solutions</a>
+            <a href="#estimator" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/80 hover:text-cyan-400 transition-colors">Instant Quote Estimator</a>
+            <a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/80 hover:text-cyan-400 transition-colors">Featured Projects</a>
+            <a href="#why-us" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/80 hover:text-cyan-400 transition-colors">Why Choose Us</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-slate-800/80 hover:text-cyan-400 transition-colors">Get a Quote</a>
+            <div class="grid grid-cols-2 gap-2 pt-2">
+                <a href="tel:+639764827830" class="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl bg-slate-800 border border-slate-700 text-cyan-400 font-semibold text-xs">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    <span>0976-482-7830</span>
+                </a>
+                <a href="tel:+639566914918" class="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl bg-slate-800 border border-slate-700 text-amber-400 font-semibold text-xs">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    <span>0956-691-4918</span>
+                </a>
+            </div>
+            <div class="pt-2">
+                <button onclick="openAssessmentModal(); toggleMobileMenu(false);" class="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                    <span>Book Site Assessment</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative z-10 pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+        <!-- Subtle Grid Background -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-25 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 text-left space-y-7">
+                    <!-- Location & Trust Pill -->
+                    <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs sm:text-sm font-medium text-cyan-300 shadow-inner">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span>Serving Metro Manila (CAMANAVA) & Zamboanga City</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+                        Next-Gen Smart Security & <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-amber-400">Home Automation</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                        Backed by <strong class="text-white font-semibold">15+ years of electronic lock mastery</strong>, V-SmartLock engineers complete residential and commercial ecosystems—uniting precision biometric access, seamless home automation, hybrid solar power, and enterprise-grade Wi-Fi & Starlink connectivity.
+                    </p>
+
+                    <!-- Dual CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
+                        <a href="#contact" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-400/40 transition-all active:scale-[0.99]">
+                            <span>Request Free Quote</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#services" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-semibold text-base border border-slate-700/80 hover:border-cyan-500/50 transition-all">
+                            <i data-lucide="layers" class="w-5 h-5 text-cyan-400"></i>
+                            <span>Explore Services</span>
+                        </a>
+                    </div>
+
+                    <!-- Service Capabilities Tags -->
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs sm:text-sm text-slate-400">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Biometric & Hotel Locks</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> Hybrid Solar Systems</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Starlink & Omada Wi-Fi</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Visual Tech Hub Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl bg-gradient-to-b from-slate-800/80 to-slate-900/90 p-[1px] shadow-2xl shadow-cyan-950/50">
+                        <div class="rounded-[23px] bg-slate-900/95 backdrop-blur-xl p-6 sm:p-8 space-y-6">
+                            <!-- Top Status Bar -->
+                            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Integrated Ecosystem</p>
+                                        <p class="text-sm font-bold text-white">V-SmartLock Command Hub</p>
+                                    </div>
+                                </div>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                    ACTIVE
+                                </span>
+                            </div>
+
+                            <!-- Live Interactive System Preview Tiles -->
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/90 hover:border-cyan-500/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <i data-lucide="scan-face" class="w-6 h-6 text-cyan-400"></i>
+                                        <span class="text-[11px] font-semibold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md">3D Face + PIN</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-white">Smart Access</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">TTLock / Tuya / Aqara</p>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/90 hover:border-amber-500/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <i data-lucide="sun" class="w-6 h-6 text-amber-400"></i>
+                                        <span class="text-[11px] font-semibold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-md">Hybrid LiFePO4</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-white">Solar Energy</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">24/7 Backup Power</p>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/90 hover:border-cyan-500/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <i data-lucide="satellite-dish" class="w-6 h-6 text-cyan-400"></i>
+                                        <span class="text-[11px] font-semibold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-md">Dual-WAN</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-white">Starlink & Omada</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Zero-Drop Enterprise Mesh</p>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/90 hover:border-amber-500/40 transition-colors">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <i data-lucide="cctv" class="w-6 h-6 text-amber-400"></i>
+                                        <span class="text-[11px] font-semibold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-md">4K AI Night</span>
+                                    </div>
+                                    <p class="text-sm font-bold text-white">CCTV & Automation</p>
+                                    <p class="text-xs text-slate-400 mt-0.5">Gates, Lights & Alerts</p>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Action Bar -->
+                            <div class="pt-2 flex items-center justify-between gap-4 bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80">
+                                <div>
+                                    <p class="text-xs text-slate-400">Need an instant ballpark figure?</p>
+                                    <p class="text-sm font-semibold text-white">Try our Interactive Estimator</p>
+                                </div>
+                                <a href="#estimator" class="px-4 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 text-xs font-bold transition-colors whitespace-nowrap">
+                                    Calculate Now →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KEY TRUST STATS BAR -->
+            <div class="mt-16 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800/90 backdrop-blur-md flex flex-col justify-between">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-white">15+ Years</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Electronic Lock & Security Expertise</p>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800/90 backdrop-blur-md flex flex-col justify-between">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                        <i data-lucide="lock" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-white">500+ Units</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Smart Locks & Access Systems Installed</p>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800/90 backdrop-blur-md flex flex-col justify-between">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                        <i data-lucide="building-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-white">Dual Sector</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Residential, Condo, Hotel & Commercial</p>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800/90 backdrop-blur-md flex flex-col justify-between">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-display font-extrabold text-2xl sm:text-3xl text-white">12-Month</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Hardware Warranty & Dedicated Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES & SOLUTIONS GRID WITH INTERACTIVE CATEGORY TABS -->
+    <section id="services" class="relative z-10 py-20 lg:py-28 border-t border-slate-900 bg-slate-950/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                    End-to-End Engineering
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+                    Smart Security, Power & Connectivity Solutions
+                </h2>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    Precision hardware selection, damage-free carpentry & door rectification, and unified mobile app integration tailored for Philippine homes and businesses.
+                </p>
+            </div>
+
+            <!-- Interactive Category Filter Tabs -->
+            <div id="service-tabs" class="mt-10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+                <button data-filter="all" class="service-tab active px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25">
+                    All Solutions
+                </button>
+                <button data-filter="locks" class="service-tab px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-900 text-slate-300 border border-slate-800 hover:border-cyan-500/40 hover:text-white">
+                    Smart Locks & Access Control
+                </button>
+                <button data-filter="automation" class="service-tab px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-900 text-slate-300 border border-slate-800 hover:border-cyan-500/40 hover:text-white">
+                    Home Automation & CCTV
+                </button>
+                <button data-filter="solar" class="service-tab px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-900 text-slate-300 border border-slate-800 hover:border-amber-500/40 hover:text-white">
+                    Solar Power Systems
+                </button>
+                <button data-filter="network" class="service-tab px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-900 text-slate-300 border border-slate-800 hover:border-cyan-500/40 hover:text-white">
+                    Enterprise Wi-Fi & Starlink
+                </button>
+            </div>
+
+            <!-- Services Grid -->
+            <div id="services-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Card 1: Smart Door Locks & Hotel Systems -->
+                <article data-category="locks" class="service-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                                <i data-lucide="fingerprint" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-cyan-300">Core Specialty</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white group-hover:text-cyan-300 transition-colors">
+                            Smart Door Locks & Hotel Systems
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                            Keyless entry engineered for wooden, aluminum, steel, and frameless glass doors with cloud and offline management.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>3D Face Recognition, Biometric Fingerprint, RFID & PIN</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>Frameless Glass Door Dropbolts & Mortise Retrofits</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>TTLock, Tuya Smart, Aqara & Hotel PMS Card Systems</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="selectServiceForQuote('Smart Door Locks & Hotel Systems')" class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <span>Request Lock Quote</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 2: Commercial Access Control -->
+                <article data-category="locks" class="service-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                                <i data-lucide="key-round" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Commercial Grade</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white group-hover:text-cyan-300 transition-colors">
+                            Commercial Access Control
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                            Heavy-duty perimeter and office access systems complete with structural door realignment and clean concealed wiring.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>600lb–1200lb Electromagnetic Locks & Fail-Safe Dropbolts</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>Biometric Time & Attendance Terminals + Exit Buttons</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>Precision Door Rectification, Closer Tuning & Restoration</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="selectServiceForQuote('Commercial Access Control')" class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <span>Request Access Quote</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 3: Home Automation & CCTV -->
+                <article data-category="automation" class="service-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                                <i data-lucide="cctv" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-slate-300">Smart Living</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white group-hover:text-cyan-300 transition-colors">
+                            Home Automation & CCTV
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                            Control lighting, motorized gates, and high-definition AI surveillance cameras from anywhere in the world.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>Smart Switches, Scene Lighting & Voice Control Integration</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>Automated Sliding/Swing Gates & Video Intercoms</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <span>4K ColorVu HD Security Cameras & Mobile Push Alerts</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="selectServiceForQuote('Home Automation & CCTV')" class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <span>Request Automation Quote</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 4: Solar Power Installations -->
+                <article data-category="solar" class="service-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/50 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-13 h-13 p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                                <i data-lucide="sun" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Clean Energy</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white group-hover:text-amber-300 transition-colors">
+                            Solar Power Installations
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                            Slash monthly Meralco/ZAMCELCO electric bills and eliminate brownout disruptions with smart solar storage.
+                        </p>
+                        <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                                <span>On-Grid, Off-Grid & Seamless Hybrid Solar Systems</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                                <span>Tier-1 Monocrystalline Panels & LiFePO4 Lithium Batteries</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                                <span>Real-Time App Energy Production & Load Monitoring</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-7 pt-5 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="selectServiceForQuote('Solar Power Systems')" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors">
+                            <span>Request Solar Quote</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 5: Starlink & Enterprise Networking -->
+                <article data-category="network" class="service-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl md:col-span-2 lg:col-span-2">
+                    <div class="grid md:grid-cols-12 gap-6 items-center">
+                        <div class="md:col-span-7">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-13 h-13 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                                    <i data-lucide="wifi" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-800 text-cyan-300">High-Availability Mesh</span>
+                            </div>
+                            <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-cyan-300 transition-colors">
+                                Starlink & Enterprise Networking
+                            </h3>
+                            <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                                Eliminate dead zones and ISP downtime across multi-story residences, hotels, resorts, and commercial offices with weatherproof roof mounts and managed VLAN routing.
+                            </p>
+                            <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                    <span>Starlink Roof/Pole Mounting, Bypass Mode & Structured CAT6 Cabling</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                    <span>Multi-ISP Load Balancing & Automatic Failover (PLDT / Globe / Converge + Starlink)</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i data-lucide="check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                    <span>TP-Link Omada & MikroTik Business Wi-Fi 6 Access Points & Guest Captive Portals</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="md:col-span-5 bg-slate-950/90 border border-slate-800/90 rounded-2xl p-5 space-y-4">
+                            <p class="text-xs font-bold uppercase tracking-wider text-cyan-400">Network Architecture</p>
+                            <div class="space-y-3 text-xs">
+                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-300 font-medium">WAN 1: Fiber ISP</span>
+                                    <span class="text-emerald-400 font-semibold">Online • 600 Mbps</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-300 font-medium">WAN 2: Starlink LEO</span>
+                                    <span class="text-cyan-400 font-semibold">Failover Ready</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-300 font-medium">Omada Mesh Nodes</span>
+                                    <span class="text-amber-400 font-semibold">100% Roaming</span>
+                                </div>
+                            </div>
+                            <button onclick="selectServiceForQuote('Starlink & Enterprise Networking')" class="w-full py-3 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition-colors">
+                                Request Network Design →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. INTERACTIVE SMART SOLUTION ESTIMATOR / QUOTE BUILDER -->
+    <section id="estimator" class="relative z-10 py-20 lg:py-28 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800 p-6 sm:p-10 lg:p-12 shadow-2xl">
+                <div class="max-w-3xl mb-10">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-3">
+                        <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                        Instant Setup Configurator
+                    </span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+                        Interactive Smart Solution Estimator
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">
+                        Configure your property type, required systems, and unit count to generate an instant hardware & installation investment estimate.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                    <!-- Left Controls (7 cols) -->
+                    <div class="lg:col-span-7 space-y-8">
+                        <!-- Step 1: Property Type -->
+                        <div>
+                            <label class="block text-sm font-bold text-white mb-3">1. Select Property Type</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="est-property-group">
+                                <button type="button" data-prop="Residential" data-mult="1" class="est-prop-btn active p-3.5 rounded-2xl border border-cyan-500 bg-cyan-500/15 text-left transition-all">
+                                    <i data-lucide="home" class="w-5 h-5 text-cyan-400 mb-2"></i>
+                                    <p class="text-xs sm:text-sm font-bold text-white">Residential</p>
+                                    <p class="text-[11px] text-slate-400">House / Villa</p>
+                                </button>
+                                <button type="button" data-prop="Condo" data-mult="1" class="est-prop-btn p-3.5 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 text-left transition-all">
+                                    <i data-lucide="building" class="w-5 h-5 text-slate-400 mb-2"></i>
+                                    <p class="text-xs sm:text-sm font-bold text-white">Condo</p>
+                                    <p class="text-[11px] text-slate-400">Unit / Penthouse</p>
+                                </button>
+                                <button type="button" data-prop="Hotel / Commercial" data-mult="1.15" class="est-prop-btn p-3.5 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 text-left transition-all">
+                                    <i data-lucide="hotel" class="w-5 h-5 text-slate-400 mb-2"></i>
+                                    <p class="text-xs sm:text-sm font-bold text-white">Hotel / Bldg</p>
+                                    <p class="text-[11px] text-slate-400">Hospitality</p>
+                                </button>
+                                <button type="button" data-prop="Office" data-mult="1.1" class="est-prop-btn p-3.5 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 text-left transition-all">
+                                    <i data-lucide="briefcase" class="w-5 h-5 text-slate-400 mb-2"></i>
+                                    <p class="text-xs sm:text-sm font-bold text-white">Office</p>
+                                    <p class="text-[11px] text-slate-400">Workspace / Retail</p>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Desired Services -->
+                        <div>
+                            <label class="block text-sm font-bold text-white mb-3">2. Choose Desired Systems (Select one or more)</label>
+                            <div class="grid sm:grid-cols-2 gap-3" id="est-services-group">
+                                <label class="est-service-item flex items-start gap-3 p-4 rounded-2xl border border-cyan-500/60 bg-cyan-500/10 cursor-pointer transition-all">
+                                    <input type="checkbox" value="Smart Door Locks" data-base="14500" data-perunit="12500" checked class="mt-1 accent-cyan-400 w-4 h-4 rounded">
+                                    <div>
+                                        <p class="text-sm font-bold text-white">Smart Door Locks</p>
+                                        <p class="text-xs text-slate-400">Biometric / Face / RFID + Install</p>
+                                    </div>
+                                </label>
+
+                                <label class="est-service-item flex items-start gap-3 p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 cursor-pointer transition-all">
+                                    <input type="checkbox" value="Commercial Access Control" data-base="18000" data-perunit="14000" class="mt-1 accent-cyan-400 w-4 h-4 rounded">
+                                    <div>
+                                        <p class="text-sm font-bold text-white">Access Control & Maglocks</p>
+                                        <p class="text-xs text-slate-400">Biometric / Card + Door Tuning</p>
+                                    </div>
+                                </label>
+
+                                <label class="est-service-item flex items-start gap-3 p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 cursor-pointer transition-all">
+                                    <input type="checkbox" value="Home Automation & CCTV" data-base="16000" data-perunit="4500" class="mt-1 accent-cyan-400 w-4 h-4 rounded">
+                                    <div>
+                                        <p class="text-sm font-bold text-white">Home Automation & CCTV</p>
+                                        <p class="text-xs text-slate-400">4K Cameras, Smart Switches & Gates</p>
+                                    </div>
+                                </label>
+
+                                <label class="est-service-item flex items-start gap-3 p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 cursor-pointer transition-all">
+                                    <input type="checkbox" value="Hybrid Solar Power System" data-base="145000" data-perunit="15000" class="mt-1 accent-amber-400 w-4 h-4 rounded">
+                                    <div>
+                                        <p class="text-sm font-bold text-white">Hybrid Solar Power</p>
+                                        <p class="text-xs text-slate-400">Panels + Hybrid Inverter + LiFePO4</p>
+                                    </div>
+                                </label>
+
+                                <label class="est-service-item flex items-start gap-3 p-4 rounded-2xl border border-slate-800 bg-slate-950/70 hover:border-slate-700 cursor-pointer transition-all sm:col-span-2">
+                                    <input type="checkbox" value="Starlink & Enterprise Wi-Fi" data-base="22000" data-perunit="6500" class="mt-1 accent-cyan-400 w-4 h-4 rounded">
+                                    <div>
+                                        <p class="text-sm font-bold text-white">Starlink & Enterprise Wi-Fi Mesh</p>
+                                        <p class="text-xs text-slate-400">Roof Mounting, Dual-WAN Failover & TP-Link Omada / MikroTik APs</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Doors / Zones / Units Slider -->
+                        <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                            <div class="flex items-center justify-between mb-3">
+                                <label for="est-units" class="text-sm font-bold text-white">3. Number of Doors / Cameras / Zones</label>
+                                <span id="est-units-display" class="px-3.5 py-1 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 font-display font-bold text-sm">
+                                    2 Units
+                                </span>
+                            </div>
+                            <input type="range" id="est-units" min="1" max="50" value="2" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+                            <div class="flex justify-between text-[11px] text-slate-500 mt-2">
+                                <span>1 Door/Zone</span>
+                                <span>15 Units</span>
+                                <span>30 Units</span>
+                                <span>50+ Commercial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Summary Card (5 cols) -->
+                    <div class="lg:col-span-5 rounded-3xl bg-slate-950 border border-cyan-500/30 p-6 sm:p-8 space-y-6 shadow-xl">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-cyan-400">Estimated Setup Overview</p>
+                                <h3 id="est-summary-title" class="font-display font-bold text-lg text-white mt-0.5">Residential Package</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                                <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-400">
+                                <span>Property Profile:</span>
+                                <span id="est-prop-label" class="font-semibold text-white">Residential</span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Scale / Coverage:</span>
+                                <span id="est-scale-label" class="font-semibold text-white">2 Doors / Zones</span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Est. Deployment Time:</span>
+                                <span id="est-timeline-label" class="font-semibold text-emerald-400">Same-Day / 1 Day</span>
+                            </div>
+                            <div class="pt-2 border-t border-slate-800/80">
+                                <p class="text-xs text-slate-400 mb-2">Included Scope:</p>
+                                <div id="est-selected-tags" class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-cyan-300">Smart Door Locks</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estimated Price Range -->
+                        <div class="p-5 rounded-2xl bg-gradient-to-r from-cyan-950/50 to-slate-900 border border-cyan-500/20">
+                            <p class="text-xs text-slate-400">Estimated Ballpark Investment (Hardware + Pro Install)</p>
+                            <p id="est-price-range" class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-1">
+                                ₱27,000 – ₱34,500
+                            </p>
+                            <p class="text-[11px] text-slate-400 mt-1.5">
+                                *Includes 12-month hardware warranty & on-site configuration. Final quote confirmed after site check.
+                            </p>
+                        </div>
+
+                        <button type="button" onclick="transferEstimateToForm()" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2">
+                            <span>Lock In This Estimate & Request Quote</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FEATURED TRACK RECORD / PORTFOLIO SECTION -->
+    <section id="projects" class="relative z-10 py-20 lg:py-28 border-t border-slate-900 bg-slate-950/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div class="max-w-2xl space-y-3">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                        Proven Track Record
+                    </span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+                        Featured Residential & Commercial Deployments
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        From multi-story corporate towers in Metro Manila to hospitality resorts and residences in Zamboanga City.
+                    </p>
+                </div>
+                <a href="#contact" class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                    <span>Discuss Your Project Scope</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Project 1 -->
+                <div class="group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-7 sm:p-8 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">
+                                Hospitality & Carpentry
+                            </span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i> Metro Manila
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-cyan-300 transition-colors">
+                            100-Room Hotel Lock & Door Restoration
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Full-scale replacement of legacy hotel keycards with RFID/BLE smart hotel mortise locks, paired with precision wooden door jamb rectification, acoustic seal restoration, and front-desk encoder software integration.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Scope</p>
+                                <p class="text-sm font-bold text-white mt-0.5">100 Doors</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">System</p>
+                                <p class="text-sm font-bold text-cyan-400 mt-0.5">Hotel PMS</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Result</p>
+                                <p class="text-sm font-bold text-emerald-400 mt-0.5">Zero Downtime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-7 sm:p-8 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">
+                                Corporate & High-Rise
+                            </span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i> Metro Manila
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-cyan-300 transition-colors">
+                            Commercial Tower Approved Access Control
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Engineered and installed admin-approved biometric facial recognition terminals, 1200lb electromagnetic locks, frameless glass door dropbolts, and fire-alarm release relays for corporate office floors.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Compliance</p>
+                                <p class="text-sm font-bold text-white mt-0.5">Admin & FDAS</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Auth</p>
+                                <p class="text-sm font-bold text-cyan-400 mt-0.5">Face + RFID</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Wiring</p>
+                                <p class="text-sm font-bold text-emerald-400 mt-0.5">100% Concealed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-7 sm:p-8 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold">
+                                Hospitality & Connectivity
+                            </span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cyan-400"></i> Zamboanga City
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-cyan-300 transition-colors">
+                            Hospitality Smart Lock & Starlink Rollout
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Deployed remote-PIN TTLock smart locks for automated self-check-in suites alongside elevated Starlink satellite dishes, MikroTik dual-WAN failover routers, and outdoor TP-Link Omada Wi-Fi 6 mesh coverage.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Backhaul</p>
+                                <p class="text-sm font-bold text-white mt-0.5">Starlink + Fiber</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Wi-Fi</p>
+                                <p class="text-sm font-bold text-cyan-400 mt-0.5">Omada Mesh</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Access</p>
+                                <p class="text-sm font-bold text-emerald-400 mt-0.5">Auto-PIN Codes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 overflow-hidden transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-7 sm:p-8 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold">
+                                Residential Flagship
+                            </span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i> CAMANAVA / Zamboanga
+                            </span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-amber-300 transition-colors">
+                            Residential Hybrid Solar & Smart Home
+                        </h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Complete smart home transformation featuring an 8kW Hybrid Solar setup with 10kWh LiFePO4 battery storage, 3D facial recognition main door lock, automated motorized gate, and 8-channel 4K AI CCTV surveillance.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Solar</p>
+                                <p class="text-sm font-bold text-amber-400 mt-0.5">8kW Hybrid</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Storage</p>
+                                <p class="text-sm font-bold text-white mt-0.5">10kWh LiFePO4</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                                <p class="text-xs text-slate-400">Security</p>
+                                <p class="text-sm font-bold text-cyan-400 mt-0.5">Face + 4K CCTV</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHY CHOOSE V-SMARTLOCK SECTION -->
+    <section id="why-us" class="relative z-10 py-20 lg:py-28 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-14">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                    The V-SmartLock Standard
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+                    Why Homeowners & Enterprises Trust Us
+                </h2>
+                <p class="text-slate-400 text-base">
+                    Installing smart locks, high-voltage solar, and commercial access systems demands certified technical craftsmanship—not guesswork.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <!-- Pillar 1 -->
+                <div class="p-6 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+                        <i data-lucide="file-check-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">DTI & BIR Registered</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        100% legitimate, registered Philippine business issuing official receipts and compliant commercial documentation for condo & building admin permits.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="p-6 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center">
+                        <i data-lucide="wrench" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">15+ Years Mastery</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Deep mechanical and electronic lock expertise—solving complex mortise alignments, sagged doors, and multi-system integrations effortlessly.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="p-6 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white">Damage-Free Install</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Precision jig boring, clean concealed cabling, and dust-controlled installation that preserves the aesthetics of high-end solid wood and glass doors.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="p-6 rounded-3xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/40 transition-colors space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <!-- Service Area & Direct Contact Cards -->
+                    <div class="space-y-4">
+                        <!-- Direct Phone / Call & Text Card -->
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-900/90 border border-cyan-500/30 space-y-3.5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-white">Direct Phone / Call & Text</h3>
+                                    <p class="text-xs text-slate-400">Available via Mobile Call, SMS, Viber & WhatsApp</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2.5 pt-1">
+                                <!-- Hotline 1 -->
+                                <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-cyan-500/40 transition-colors">
+                                    <a href="tel:+639764827830" class="flex items-center gap-2.5 text-sm sm:text-base font-display font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                                        <i data-lucide="smartphone" class="w-4 h-4 shrink-0"></i>
+                                        <span>0976-482-7830</span>
+                                    </a>
+                                    <button type="button" onclick="copyPhoneNumber('09764827830', this)" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white inline-flex items-center gap-1.5 transition-colors">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5 text-cyan-400"></i>
+                                        <span>Copy Number</span>
+                                    </button>
+                                </div>
+
+                                <!-- Hotline 2 -->
+                                <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-amber-500/40 transition-colors">
+                                    <a href="tel:+639566914918" class="flex items-center gap-2.5 text-sm sm:text-base font-display font-bold text-amber-400 hover:text-amber-300 transition-colors">
+                                        <i data-lucide="smartphone" class="w-4 h-4 shrink-0"></i>
+                                        <span>0956-691-4918</span>
+                                    </a>
+                                    <button type="button" onclick="copyPhoneNumber('09566914918', this)" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 hover:text-white inline-flex items-center gap-1.5 transition-colors">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5 text-amber-400"></i>
+                                        <span>Copy Number</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-base text-white">Metro Manila & CAMANAVA Hub</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    Covering Malabon, Caloocan, Navotas, Valenzuela, Quezon City, Makati, BGC, Pasig & Greater NCR.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="compass" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-base text-white">Zamboanga City Operations</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    Dedicated local installation & technical support team serving Zamboanga City & nearby commercial centers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-base text-white">Business & Dispatch Hours</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    Monday – Saturday: 8:00 AM – 6:00 PM<br>
+                                    <span class="text-cyan-400">Sunday & After-Hours Commercial Installs by Appointment</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: High-Converting Inquiry Form (7 cols) -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-3xl bg-slate-900/90 border border-slate-800 p-6 sm:p-9 shadow-2xl">
+                        <!-- Form State -->
+                        <form id="inquiry-form" class="space-y-6">
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="client-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Full Name *</label>
+                                    <input type="text" id="client-name" required placeholder="Juan Dela Cruz" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                </div>
+                                <div>
+                                    <label for="client-phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Mobile / Viber / WhatsApp *</label>
+                                    <input type="tel" id="client-phone" required placeholder="0917 123 4567" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="client-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Email Address</label>
+                                    <input type="email" id="client-email" placeholder="juan@company.com" class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                </div>
+                                <div>
+                                    <label for="client-location" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Service Area / City *</label>
+                                    <select id="client-location" required class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                        <option value="Metro Manila - CAMANAVA">Metro Manila (Malabon / CAMANAVA)</option>
+                                        <option value="Metro Manila - NCR">Metro Manila (QC / Makati / BGC / Pasig / Other NCR)</option>
+                                        <option value="Zamboanga City">Zamboanga City</option>
+                                        <option value="Provincial Commercial Project">Other Province (Commercial / Bulk Project)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Quick-Select Service Checkboxes -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3">Services Interested In *</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="form-service-checkboxes">
+                                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/40 cursor-pointer text-xs sm:text-sm text-slate-200">
+                                        <input type="checkbox" name="service" value="Smart Door Locks & Hotel Systems" class="accent-cyan-400 w-4 h-4 rounded">
+                                        <span>Smart Door Locks & Hotel Systems</span>
+                                    </label>
+                                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/40 cursor-pointer text-xs sm:text-sm text-slate-200">
+                                        <input type="checkbox" name="service" value="Commercial Access Control" class="accent-cyan-400 w-4 h-4 rounded">
+                                        <span>Commercial Access Control</span>
+                                    </label>
+                                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/40 cursor-pointer text-xs sm:text-sm text-slate-200">
+                                        <input type="checkbox" name="service" value="Home Automation & CCTV" class="accent-cyan-400 w-4 h-4 rounded">
+                                        <span>Home Automation & CCTV</span>
+                                    </label>
+                                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500/40 cursor-pointer text-xs sm:text-sm text-slate-200">
+                                        <input type="checkbox" name="service" value="Solar Power Systems" class="accent-amber-400 w-4 h-4 rounded">
+                                        <span>Solar Power Systems</span>
+                                    </label>
+                                    <label class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/40 cursor-pointer text-xs sm:text-sm text-slate-200 sm:col-span-2">
+                                        <input type="checkbox" name="service" value="Starlink & Enterprise Networking" class="accent-cyan-400 w-4 h-4 rounded">
+                                        <span>Starlink & Enterprise Wi-Fi Networking</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="client-details" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Project Details / Door Type / Estimator Notes</label>
+                                <textarea id="client-details" rows="4" placeholder="Tell us about your door material (wood, glass, steel), number of doors/rooms, solar kW target, or preferred site visit schedule..." class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors text-sm"></textarea>
+                            </div>
+
+                            <!-- Inline Validation Message Box (No alert()) -->
+                            <div id="form-error-box" class="hidden p-4 rounded-xl bg-rose-500/10 border border-rose-500/40 text-rose-300 text-xs sm:text-sm flex items-center gap-2.5">
+                                <i data-lucide="alert-circle" class="w-5 h-5 shrink-0 text-rose-400"></i>
+                                <span id="form-error-text">Please fill out all required fields and select at least one service.</span>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-400/40 transition-all flex items-center justify-center gap-2.5">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Submit Inquiry & Request Free Quote</span>
+                            </button>
+                        </form>
+
+                        <!-- Interactive Confirmation Panel -->
+                        <div id="inquiry-confirmation" class="hidden text-center py-8 space-y-6">
+                            <div class="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
+                                <i data-lucide="check-circle-2" class="w-9 h-9"></i>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                                    Reference #<span id="ref-number">VSL-8492</span>
+                                </span>
+                                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white">
+                                    Inquiry Received, <span id="confirm-name" class="text-cyan-400">Client</span>!
+                                </h3>
+                                <p class="text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
+                                    Our engineering dispatch team for <strong id="confirm-location" class="text-white">Metro Manila</strong> has logged your request and will contact you via <strong id="confirm-phone" class="text-cyan-300">your number</strong> within 2 business hours.
+                                </p>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 max-w-md mx-auto text-left space-y-2 text-xs">
+                                <p class="text-slate-400 font-semibold uppercase">Requested Solutions:</p>
+                                <p id="confirm-services" class="text-white font-medium"></p>
+                                <div class="pt-2 mt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
+                                    <span class="text-slate-400">Need immediate phone support?</span>
+                                    <div class="flex items-center gap-2 font-bold">
+                                        <a href="tel:+639764827830" class="text-cyan-400 hover:underline">0976-482-7830</a>
+                                        <span class="text-slate-700">|</span>
+                                        <a href="tel:+639566914918" class="text-amber-400 hover:underline">0956-691-4918</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                                <button type="button" onclick="copyReferenceSummary()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors">
+                                    <i data-lucide="copy" class="w-4 h-4 text-cyan-400"></i>
+                                    <span id="copy-btn-text">Copy Inquiry Summary</span>
+                                </button>
+                                <button type="button" onclick="resetInquiryForm()" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-white text-xs font-semibold transition-colors">
+                                    Submit Another Request
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-slate-900 bg-slate-950 pt-14 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-900">
+                <!-- Brand Col -->
+                <div class="space-y-4 lg:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-cyan-600 p-[1px]">
+                            <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-cyan-400"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="font-display font-extrabold text-lg text-white block leading-none">V-SmartLock</span>
+                            <span class="text-[11px] font-medium text-cyan-400 uppercase tracking-wider">Home Automation Services</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+                        Premier residential and commercial smart lock, access control, home automation, hybrid solar, and enterprise networking specialist across Metro Manila (CAMANAVA) and Zamboanga City.
+                    </p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 font-medium">DTI Registered</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 font-medium">BIR Registered</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-cyan-400 font-medium">12-Mo Warranty</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                <!-- Contact & Service Hubs -->
+                <div>
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white mb-4">Contact & Service Hubs</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li>
+                            <a href="tel:+639764827830" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
+                                <i data-lucide="phone-call" class="w-4 h-4"></i> 0976-482-7830
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+639566914918" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold transition-colors">
+                                <i data-lucide="phone-call" class="w-4 h-4"></i> 0956-691-4918
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2 pt-1"><i data-lucide="map-pin" class="w-4 h-4 text-cyan-400"></i> Metro Manila & CAMANAVA</li>
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i> Zamboanga City</li>
+                        <li class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-cyan-400"></i> Mon–Sat: 8:00 AM – 6:00 PM</li>
+                        <li class="pt-2">
+                            <button onclick="openAssessmentModal()" class="text-cyan-400 hover:text-cyan-300 font-semibold text-sm inline-flex items-center gap-1">
+                                <span>Book Site Assessment</span>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© <span id="current-year">2026</span> V-SmartLock Home Automation Services. All rights reserved.</p>
+                <p>Engineered for Security, Reliability & Modern Living.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOK SITE ASSESSMENT QUICK MODAL -->
+    <div id="assessment-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="relative w-full max-w-lg rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-8 shadow-2xl">
+            <button onclick="closeAssessmentModal()" aria-label="Close Modal" class="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-2 mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold">
+                    <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i> Priority Dispatch
+                </span>
+                <h3 class="font-display font-extrabold text-2xl text-white">Book an On-Site Assessment</h3>
+                <p class="text-xs sm:text-sm text-slate-400">
+                    Schedule a technician visit to inspect door measurements, solar roof orientation, or Wi-Fi/Starlink line-of-sight.
+                </p>
+            </div>
+
+            <form id="modal-assessment-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Your Name *</label>
+                    <input type="text" id="modal-name" required placeholder="Full Name or Company" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-400">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Contact Number *</label>
+                        <input type="tel" id="modal-phone" required placeholder="09XX XXX XXXX" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Location *</label>
+                        <select id="modal-city" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="Metro Manila (CAMANAVA / NCR)">Metro Manila</option>
+                            <option value="Zamboanga City">Zamboanga City</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Preferred Date *</label>
+                        <input type="date" id="modal-date" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Primary Focus</label>
+                        <select id="modal-focus" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="Smart Door Locks">Smart Door Locks</option>
+                            <option value="Commercial Access Control">Commercial Access Control</option>
+                            <option value="Home Automation & CCTV">Home Automation & CCTV</option>
+                            <option value="Solar Power System">Solar Power System</option>
+                            <option value="Starlink & Enterprise Wi-Fi">Starlink & Enterprise Wi-Fi</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all mt-2">
+                    Confirm Site Assessment Request
+                </button>
+
+                <div class="pt-3 border-t border-slate-800/80 text-center space-y-1.5">
+                    <p class="text-[11px] text-slate-400">Prefer immediate phone consultation? Call or text our dispatch lines:</p>
+                    <div class="flex items-center justify-center gap-4 text-xs font-bold">
+                        <a href="tel:+639764827830" class="inline-flex items-center gap-1.5 text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <i data-lucide="phone" class="w-3.5 h-3.5"></i> 0976-482-7830
+                        </a>
+                        <span class="text-slate-700">|</span>
+                        <a href="tel:+639566914918" class="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 transition-colors">
+                            <i data-lucide="phone" class="w-3.5 h-3.5"></i> 0956-691-4918
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons & Dynamic Year
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Set min date on modal date picker to today
+            const dateInput = document.getElementById('modal-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.min = today;
+                dateInput.value = today;
+            }
+
+            updateEstimator();
+        });
+
+        // 1. Mobile Navigation Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu(forceState) {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            const shouldOpen = typeof forceState === 'boolean' ? forceState : isHidden;
+            if (shouldOpen) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu(false));
+        });
+
+        // 2. Services Category Tabs Filtering
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const filter = tab.getAttribute('data-filter');
+
+                // Update active tab styling
+                serviceTabs.forEach(t => {
+                    t.classList.remove('active', 'bg-cyan-500', 'text-slate-950', 'shadow-lg', 'shadow-cyan-500/25');
+                    t.classList.add('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
+                });
+                tab.classList.remove('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
+                tab.classList.add('active', 'bg-cyan-500', 'text-slate-950', 'shadow-lg', 'shadow-cyan-500/25');
+
+                // Filter cards smoothly
+                serviceCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 3. Interactive Smart Solution Estimator Logic
+        let selectedProperty = 'Residential';
+        let propertyMultiplier = 1;
+
+        const propButtons = document.querySelectorAll('.est-prop-btn');
+        const serviceCheckboxes = document.querySelectorAll('#est-services-group input[type="checkbox"]');
+        const unitsSlider = document.getElementById('est-units');
+
+        propButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                propButtons.forEach(b => {
+                    b.classList.remove('active', 'border-cyan-500', 'bg-cyan-500/15');
+                    b.classList.add('border-slate-800', 'bg-slate-950/70');
+                    const icon = b.querySelector('svg');
+                    if (icon) icon.classList.remove('text-cyan-400');
+                });
+                btn.classList.remove('border-slate-800', 'bg-slate-950/70');
+                btn.classList.add('active', 'border-cyan-500', 'bg-cyan-500/15');
+
+                selectedProperty = btn.getAttribute('data-prop');
+                propertyMultiplier = parseFloat(btn.getAttribute('data-mult')) || 1;
+                updateEstimator();
+            });
+        });
+
+        serviceCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                const parent = cb.closest('.est-service-item');
+                if (cb.checked) {
+                    parent.classList.remove('border-slate-800', 'bg-slate-950/70');
+                    parent.classList.add('border-cyan-500/60', 'bg-cyan-500/10');
+                } else {
+                    parent.classList.remove('border-cyan-500/60', 'bg-cyan-500/10');
+                    parent.classList.add('border-slate-800', 'bg-slate-950/70');
+                }
+                updateEstimator();
+            });
+        });
+
+        unitsSlider.addEventListener('input', updateEstimator);
+
+        function formatPHP(amount) {
+            return '₱' + Math.round(amount).toLocaleString('en-PH');
+        }
+
+        function updateEstimator() {
+            const units = parseInt(unitsSlider.value, 10) || 1;
+            document.getElementById('est-units-display').textContent = `${units} ${units === 1 ? 'Unit' : 'Units'}`;
+            document.getElementById('est-scale-label').textContent = `${units} ${units === 1 ? 'Door / Zone' : 'Doors / Zones'}`;
+            document.getElementById('est-prop-label').textContent = selectedProperty;
+            document.getElementById('est-summary-title').textContent = `${selectedProperty} Package`;
+
+            let totalLow = 0;
+            const selectedNames = [];
+
+            serviceCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    const base = parseFloat(cb.getAttribute('data-base')) || 0;
+                    const perUnit = parseFloat(cb.getAttribute('data-perunit')) || 0;
+                    const extraUnits = Math.max(0, units - 1);
+                    // Volume discount for larger deployments
+                    const volumeFactor = units > 15 ? 0.85 : (units > 5 ? 0.92 : 1);
+                    totalLow += (base + (extraUnits * perUnit * volumeFactor)) * propertyMultiplier;
+                    selectedNames.push(cb.value);
+                }
+            });
+
+            const tagsContainer = document.getElementById('est-selected-tags');
+            if (selectedNames.length === 0) {
+                tagsContainer.innerHTML = `<span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-400">Select at least one service</span>`;
+                document.getElementById('est-price-range').textContent = '₱0';
+                document.getElementById('est-timeline-label').textContent = '—';
+                return;
+            }
+
+            tagsContainer.innerHTML = selectedNames
+                .map(name => `<span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-cyan-500/30 text-xs text-cyan-300 font-medium">${name}</span>`)
+                .join('');
+
+            const totalHigh = totalLow * 1.25;
+            document.getElementById('est-price-range').textContent = `${formatPHP(totalLow)} – ${formatPHP(totalHigh)}`;
+
+            // Estimate deployment timeline
+            let timeline = 'Same-Day / 1 Day';
+            if (selectedNames.includes('Hybrid Solar Power System') || units > 12) {
+                timeline = '2 – 4 Working Days';
+            } else if (units > 4 || selectedNames.length >= 3) {
+                timeline = '1 – 2 Working Days';
+            }
+            document.getElementById('est-timeline-label').textContent = timeline;
+        }
+
+        // Transfer Estimator Data straight to Contact Form
+        function transferEstimateToForm() {
+            const units = unitsSlider.value;
+            const priceRange = document.getElementById('est-price-range').textContent;
+            const checkedServices = Array.from(serviceCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            // Sync checkboxes in main inquiry form
+            const formCheckboxes = document.querySelectorAll('#form-service-checkboxes input[type="checkbox"]');
+            formCheckboxes.forEach(fcb => {
+                fcb.checked = checkedServices.some(s =>
+                    (s.includes('Smart Door Locks') && fcb.value.includes('Smart Door Locks')) ||
+                    (s.includes('Access Control') && fcb.value.includes('Commercial Access')) ||
+                    (s.includes('Automation') && fcb.value.includes('Automation')) ||
+                    (s.includes('Solar') && fcb.value.includes('Solar')) ||
+                    (s.includes('Starlink') && fcb.value.includes('Starlink'))
+                );
+            });
+
+            const detailsField = document.getElementById('client-details');
+            detailsField.value = `[Estimator Config] Property: ${selectedProperty} | Scale: ${units} Doors/Zones | Services: ${checkedServices.join(', ')} | Est. Range: ${priceRange}\n\nAdditional notes: `;
+
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => document.getElementById('client-name').focus(), 600);
+        }
+
+        // Helper from Service Cards to pre-select service in Contact Form
+        function selectServiceForQuote(serviceName) {
+            const formCheckboxes = document.querySelectorAll('#form-service-checkboxes input[type="checkbox"]');
+            formCheckboxes.forEach(cb => {
+                if (cb.value === serviceName) {
+                    cb.checked = true;
+                }
+            });
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => document.getElementById('client-name').focus(), 600);
+        }
+
+        // 4. Inquiry Form Submission & Interactive Confirmation
+        const inquiryForm = document.getElementById('inquiry-form');
+        const inquiryConfirmation = document.getElementById('inquiry-confirmation');
+        const formErrorBox = document.getElementById('form-error-box');
+        let lastSubmittedSummary = '';
+
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formErrorBox.classList.add('hidden');
+
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const location = document.getElementById('client-location').value;
+            const details = document.getElementById('client-details').value.trim();
+            const selectedServices = Array.from(document.querySelectorAll('#form-service-checkboxes input[type="checkbox"]:checked'))
+                .map(cb => cb.value);
+
+            if (!name || !phone || selectedServices.length === 0) {
+                document.getElementById('form-error-text').textContent = !name || !phone
+                    ? 'Please enter your full name and mobile/Viber number.'
+                    : 'Please select at least one service you are interested in.';
+                formErrorBox.classList.remove('hidden');
+                return;
+            }
+
+            const refCode = 'VSL-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('ref-number').textContent = refCode;
+            document.getElementById('confirm-name').textContent = name;
+            document.getElementById('confirm-location').textContent = location;
+            document.getElementById('confirm-phone').textContent = phone;
+            document.getElementById('confirm-services').textContent = selectedServices.join(' • ');
+
+            lastSubmittedSummary = `V-SmartLock Inquiry (${refCode})\nName: ${name}\nContact: ${phone}\nArea: ${location}\nServices: ${selectedServices.join(', ')}\nNotes: ${details || 'N/A'}`;
+
+            inquiryForm.classList.add('hidden');
+            inquiryConfirmation.classList.remove('hidden');
+        });
+
+        function resetInquiryForm() {
+            inquiryForm.reset();
+            inquiryConfirmation.classList.add('hidden');
+            inquiryForm.classList.remove('hidden');
+            document.getElementById('copy-btn-text').textContent = 'Copy Inquiry Summary';
+        }
+
+        // Clipboard Copy using document.execCommand('copy')
+        function copyReferenceSummary() {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = lastSubmittedSummary;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                document.getElementById('copy-btn-text').textContent = 'Copied to Clipboard!';
+            } catch (err) {
+                document.getElementById('copy-btn-text').textContent = 'Summary Ready';
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // One-click Copy Phone Number helper
+        function copyPhoneNumber(phoneStr, btnEl) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = phoneStr;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            const labelSpan = btnEl.querySelector('span');
+            try {
+                document.execCommand('copy');
+                if (labelSpan) labelSpan.textContent = 'Copied!';
+            } catch (err) {
+                if (labelSpan) labelSpan.textContent = 'Copied';
+            }
+            document.body.removeChild(tempInput);
+            setTimeout(() => {
+                if (labelSpan) labelSpan.textContent = 'Copy Number';
+            }, 2000);
+        }
+
+        // 5. Book Site Assessment Modal Handlers
+        const assessmentModal = document.getElementById('assessment-modal');
+        const modalForm = document.getElementById('modal-assessment-form');
+
+        function openAssessmentModal() {
+            assessmentModal.classList.remove('hidden');
+            assessmentModal.classList.add('flex');
+        }
+
+        function closeAssessmentModal() {
+            assessmentModal.classList.add('hidden');
+            assessmentModal.classList.remove('flex');
+        }
+
+        assessmentModal.addEventListener('click', (e) => {
+            if (e.target === assessmentModal) closeAssessmentModal();
+        });
+
+        modalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const mName = document.getElementById('modal-name').value.trim();
+            const mPhone = document.getElementById('modal-phone').value.trim();
+            const mCity = document.getElementById('modal-city').value;
+            const mDate = document.getElementById('modal-date').value;
+            const mFocus = document.getElementById('modal-focus').value;
+
+            closeAssessmentModal();
+
+            // Populate main confirmation panel cleanly
+            const refCode = 'VSL-SITE-' + Math.floor(100 + Math.random() * 900);
+            document.getElementById('ref-number').textContent = refCode;
+            document.getElementById('confirm-name').textContent = mName;
+            document.getElementById('confirm-location').textContent = mCity;
+            document.getElementById('confirm-phone').textContent = mPhone;
+            document.getElementById('confirm-services').textContent = `On-Site Assessment (${mDate}) • Focus: ${mFocus}`;
+
+            lastSubmittedSummary = `V-SmartLock Site Assessment (${refCode})\nName: ${mName}\nContact: ${mPhone}\nArea: ${mCity}\nPreferred Date: ${mDate}\nFocus: ${mFocus}`;
+
+            inquiryForm.classList.add('hidden');
+            inquiryConfirmation.classList.remove('hidden');
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            modalForm.reset();
+        });
+    </script>
+</body>
+</html>
